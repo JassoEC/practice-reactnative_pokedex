@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/core';
 import React, {useEffect, useRef, useState} from 'react';
 import {
   Dimensions,
@@ -20,6 +21,7 @@ const windoWith = Dimensions.get('window').width;
 export const PokemonCard = ({pokemon}: Props) => {
   const [bgColor, setbgColor] = useState('grey');
   const isMounted = useRef(true);
+  const navigation = useNavigation();
 
   useEffect(() => {
     ImageColors.getColors(pokemon.picture, {fallback: 'grey'}).then(colors => {
@@ -35,7 +37,14 @@ export const PokemonCard = ({pokemon}: Props) => {
   }, []);
 
   return (
-    <TouchableOpacity activeOpacity={0.8}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() =>
+        navigation.navigate('PokemonScreen', {
+          simplePokemon: pokemon,
+          color: bgColor,
+        })
+      }>
       <View
         style={{
           ...styles.cardContainer,
