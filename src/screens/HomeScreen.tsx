@@ -11,8 +11,6 @@ export const HomeScreen = () => {
 
   const {isLoading, simplePokemonList, loadPokemons} = usePokemonPagination();
 
-  console.log(simplePokemonList);
-
   return (
     <>
       <Image
