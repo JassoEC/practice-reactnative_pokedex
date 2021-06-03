@@ -40,7 +40,7 @@ export const TabsNavigation = () => {
           name="SearchScreen"
           component={SearchScreen}
           options={{
-            tabBarLabel: 'Listado',
+            tabBarLabel: 'Búsqueda',
             tabBarIcon: ({color}) => (
               <Icon color={color} size={25} name="search-outline" />
             ),
